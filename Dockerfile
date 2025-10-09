@@ -7,7 +7,7 @@ ENV PGDATA=/var/lib/postgresql/data
 WORKDIR /var/lib/postgresql
 
 RUN apt-get update \
- && apt-get install -y python3-pip python3-psycopg2 patroni pgbackrest \
+ && apt-get install -y python3-pip python3-psycopg2 python3-etcd patroni pgbackrest \
  && mkdir -p "$PGDATA" \
  && chmod -R 700 "$PGDATA"
 
