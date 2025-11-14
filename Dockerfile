@@ -1,6 +1,6 @@
 ARG PG_MAJOR=18
 
-FROM registry.prijindal.click/docker_hub/library/postgres:$PG_MAJOR
+FROM postgres:$PG_MAJOR
 
 ENV PGDATA=/data
 
