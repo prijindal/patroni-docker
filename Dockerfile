@@ -6,6 +6,7 @@ ENV PGDATA=/data
 
 RUN apt-get update \
  && apt-get install -y --no-install-recommends \
+    curl \
     python3-psycopg2 \
     python3-etcd \
     patroni \
