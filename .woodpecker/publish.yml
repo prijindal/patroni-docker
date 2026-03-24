@@ -12,6 +12,7 @@ steps:
       password:
         from_secret: PACKAGE_TOKEN
       auto_tag: true
+      provenance: mode=max
       repo: git.prijindal.click/${CI_REPO}
       cache-from:
         - type=registry\\,ref=git.prijindal.click/${CI_REPO}:buildcache
