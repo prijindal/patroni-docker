@@ -1,6 +1,5 @@
 when:
-  - event: push
-    branch: main
+  - event: [push, cron, manual]
 
 steps:
   - name: build-and-push
