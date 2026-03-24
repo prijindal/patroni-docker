@@ -1,0 +1,16 @@
+when:
+  - event: push
+    branch: main
+
+steps:
+  - name: build-and-push
+    image: woodpeckerci/plugin-docker-buildx
+    settings:
+      platforms: linux/amd64,linux/arm64
+      registry: git.prijindal.click
+      repo: git.prijindal.click/${CI_REPO_OWNER}/${CI_REPO_NAME}
+      username: ${CI_REPO_OWNER}
+      password:
+        from_secret: package_token
+      cache-from: type=registry,ref=git.prijindal.click/${CI_REPO_OWNER}/${CI_REPO_NAME}:buildcache
+      cache-to: type=registry,ref=git.prijindal.click/${CI_REPO_OWNER}/${CI_REPO_NAME}:buildcache,mode=max
