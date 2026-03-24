@@ -3,21 +3,12 @@ when:
     branch: main
 
 steps:
-  - name: generate_docker_tags
-    image: ghcr.io/dvjn/woodpecker-docker-tags-plugin
-    settings:
-      tags: |
-        edge
-        pr
-        tag
-        branch
-        sha
-
   - name: build-and-push
     image: woodpeckerci/plugin-docker-buildx
     settings:
       platforms: linux/amd64,linux/arm64
       registry: git.prijindal.click
+      tag: latest
       repo: git.prijindal.click/${CI_REPO_OWNER}/${CI_REPO_NAME}
       cache-from:
         - type=registry,ref=git.prijindal.click/${CI_REPO_OWNER}/${CI_REPO_NAME}:buildcache
