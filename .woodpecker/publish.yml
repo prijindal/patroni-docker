@@ -12,6 +12,9 @@ steps:
       password:
         from_secret: PACKAGE_TOKEN
       auto_tag: true
+      tags:
+        - ${CI_COMMIT_BRANCH}
+        - ${CI_COMMIT_SHA}
       provenance: mode=max
       repo: git.prijindal.click/${CI_REPO}
       cache-from:
